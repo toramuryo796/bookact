@@ -1,0 +1,48 @@
+<div class="l-body">  
+  <div class="header">
+    <%= render "shared/header" %>
+  </div>
+
+  <div class="main book-main">
+    <div class="catch-flase">
+      <span>最高の本と出会おう</span>
+    </div>
+    <div class="book-introduce-list">
+      <div class="search-box">
+        <%#= form_with  %>
+        検索欄
+      </div>
+      <%# 本の紹介リスト %>
+      <% if @books.present? %>
+        <ul>
+          <% @books.each do |book| %>
+            <li>
+              <div class="root-book-img">
+                <span><%#= book.image %></span>
+              </div>
+              <div class="root-book-title">
+                <span><%= book.title %></span>
+              </div>
+              <div clas="root-book-writer">
+                <span><%= book.writer %></span>
+              </div>
+              <div class="publish">
+                <span><%= book.publish %></span>
+              </div>
+              <div class="company">
+                <span><%= book.company %></span>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <span>登録されている本がありません</span>
+      <% end %>
+    </div>
+    <%# 本の紹介リスト %>
+  </div>
+
+  <div class="footer">
+    <%= render "shared/header" %>
+  </div>
+</div>
