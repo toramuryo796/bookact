@@ -31,13 +31,16 @@
       <div class="show-book-company">
         <span><%= @book.company %></span>
       </div>
+      <div class="new-introduce-link">
+        <%= link_to "紹介文を作成する", new_book_introduce_path(@book) %>
+      </div>
     <div>
     <%# /基本情報 %>
 
     <%# 紹介文 %>
     <% if @introduces.present? %>
       <div class="book-introduce">  
-        <% @introduce.each do |introduce| %>
+        <% @introduces.each do |introduce| %>
           <div class="introduce-body">
             <div calss="introduce-title">
               <%= introduce.title %>
@@ -48,6 +51,15 @@
           </div>
           <div class="introduce-recomend">
             おすすめ度★★★
+          </div>
+
+          <div class="introduce-options">
+            <div class="introduce-edit">
+              <%= link_to "編集", edit_book_introduce_path(@book, introduce) %>
+            </div>
+            <div class="introduce-destroy">
+              <%= link_to "削除", book_introduce_path(@book, introduce), method: :delete %>
+            </div>
           </div>
         <% end %>
       </div>

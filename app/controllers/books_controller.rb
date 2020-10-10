@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :find_book, except: [:index, :create, :book_params]
-  before_action :move_to_devise, except: :index
+  before_action :move_to_devise, except: [:index, :show]
   require 'date'
 
   def index
@@ -14,7 +14,7 @@ class BooksController < ApplicationController
   def create
     book = Book.new(book_params)
     if book.save
-      redirect_to new_introduce_path(book)
+      redirect_to new_book_introduce_path(book)
     else
       render :new
     end
