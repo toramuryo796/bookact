@@ -10,17 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_062640) do
+ActiveRecord::Schema.define(version: 2020_10_09_073112) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "writer", null: false
-    t.date "publish", null: false
-    t.string "company", null: false
+    t.string "title", default: "", null: false
+    t.string "writer", default: "", null: false
+    t.datetime "publish", null: false
+    t.string "company", default: "", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "introduces", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.string "title", null: false
+    t.bigint "user_id", null: false
+    t.bigint "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_introduces_on_book_id"
+    t.index ["user_id"], name: "index_introduces_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -37,4 +48,6 @@ ActiveRecord::Schema.define(version: 2020_10_09_062640) do
   end
 
   add_foreign_key "books", "users"
+  add_foreign_key "introduces", "books"
+  add_foreign_key "introduces", "users"
 end

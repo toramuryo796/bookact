@@ -8,31 +8,37 @@
       <span>最高の本と出会おう</span>
     </div>
     <div class="book-introduce-list">
+      <%# 検索機能 %>
       <div class="search-box">
         <%#= form_with  %>
         検索欄
       </div>
+
+      <%# 追加リンク %>
+      <div class="new-book-link">
+        <%= link_to "本を追加する", new_book_path%>
+      </div>
+
       <%# 本の紹介リスト %>
       <% if @books.present? %>
         <ul>
           <% @books.each do |book| %>
-            <li>
-              <div class="root-book-img">
-                <span><%#= book.image %></span>
-              </div>
-              <div class="root-book-title">
-                <span><%= book.title %></span>
-              </div>
-              <div clas="root-book-writer">
-                <span><%= book.writer %></span>
-              </div>
-              <div class="publish">
-                <span><%= book.publish %></span>
-              </div>
-              <div class="company">
-                <span><%= book.company %></span>
-              </div>
-            </li>
+            <%= link_to book_path(book) do %>
+              <li>
+                <div class="root-book-img">
+                  <span><%#= book.image %></span>
+                  サムネイル
+                </div>
+                <div class="root-book-title">
+                  <span><%= book.title %></span>
+                </div>
+                <div clas="root-book-writer">
+                  著者：
+                  <span><%= book.writer %></span>
+                </div>
+                </div>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       <% else %>

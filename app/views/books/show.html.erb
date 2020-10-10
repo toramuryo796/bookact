@@ -1,0 +1,62 @@
+<div class="l-body">  
+  <div class="header">
+    <%= render "shared/header" %>
+  </div>
+
+  <div class="book-show">
+    <%# 基本情報 %>
+    <div class="book-show-upper">
+      <div class="show-book-img">
+        <span><%#= book.image %></span>
+        サムネイル
+      </div>
+      <div class="show-book-title">
+        <div class="show-book-guide">
+          タイトル
+        </div>
+        <span><%= @book.title %></span>
+      </div>
+      <div clas="show-book-writer">
+        <div class="show-book-guide">
+          著者
+        </div>      
+        <span><%= @book.writer %></span>
+      </div>
+      <div class="publish">
+        <div class="show-book-guide">
+          発行会社
+        </div>      
+        <span><%= @book.publish.strftime('%Y/%m/%d') %></span>
+      </div>
+      <div class="show-book-company">
+        <span><%= @book.company %></span>
+      </div>
+    <div>
+    <%# /基本情報 %>
+
+    <%# 紹介文 %>
+    <% if @introduces.present? %>
+      <div class="book-introduce">  
+        <% @introduce.each do |introduce| %>
+          <div class="introduce-body">
+            <div calss="introduce-title">
+              <%= introduce.title %>
+            </div>
+            <div class="introduce-content">
+              <%= introduce.content %>
+            </div>
+          </div>
+          <div class="introduce-recomend">
+            おすすめ度★★★
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <span>登録されている紹介がありません</span>
+    <% end %>
+  </div>
+
+  <div class="footer">
+    <%= render "shared/header" %>
+  </div>
+</div>

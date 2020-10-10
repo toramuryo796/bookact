@@ -1,0 +1,60 @@
+<div class="l-body">  
+  <div class="header">
+    <%= render "shared/header" %>
+  </div>
+
+  <div class="main book-form-main">
+    <%= form_with url: books_path, method: :post, local: true do |f| %>
+      <div class="book-form-contens">
+      
+        <div class="book-form-box">
+          <div class="book-form-guide">
+            本のタイトル
+          </div>
+          <div class="book-form">
+            <%= f.text_field :title, placeholder: "本のタイトル" %>
+          </div>
+        </div>
+      
+        <div class="book-form-box">
+          <div class="book-form-guide">
+            著者
+          </div>
+          <div class="book-form">
+            <%= f.text_field :writer, placeholder: "著者" %>
+          </div>
+        </div>
+     
+        <div class="book-form-box">
+          <div class="book-form-guide">
+            発行所
+          </div>
+          <div class="book-form">
+            <%= f.text_field :company, placeholder: "発行所" %>
+          </div>
+        </div>  
+     
+        <div class="book-form-box">
+          <div class="book-form-guide">
+            発行日
+          </div>
+          <div class="book-form">
+            <%= f.date_select(
+              :publish,
+              use_month_numbers: true,
+              end_year: (Time.now.year),
+              default: Date.new(1980,1,1),
+              date_separator: '/'
+              ) 
+            %>
+          </div>
+        </div>  
+        <%= f.submit "作成" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="footer">
+    <%= render "shared/header" %>
+  </div>
+</div>
