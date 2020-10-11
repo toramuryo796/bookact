@@ -28,6 +28,11 @@ class BooksController < ApplicationController
   end
 
   def update
+    if @book.update(book_params)
+      redirect_to book_path(@book)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -35,7 +40,7 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.permit(:title, :writer, :company, :content, :publish).merge(user_id: current_user.id)
+    params.require(:book).permit(:title, :writer, :company, :content, :publish).merge(user_id: current_user.id)
   end
 
   def move_to_devise
