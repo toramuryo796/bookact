@@ -1,0 +1,23 @@
+.footer{
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  align-items: center;
+}
+
+.footer-app-title{
+  font-weight: 600;
+  font-size: 32px;
+  color: white;
+}
+
+.footer ul{
+  position: relative;
+  right: 30px;
+}
+
+.footer ul li, .footer a {
+  color: white;
+}

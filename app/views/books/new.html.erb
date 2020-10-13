@@ -2,6 +2,7 @@
   <div class="header">
     <%= render "shared/header" %>
   </div>
+  <%= render partial: "shared/category_list", locals: {categories: @categories} %>
 
   <div class="main book-form-main">
     <%= form_with model:@book, url: books_path, method: :post, local: true do |f| %>
@@ -12,7 +13,7 @@
             本のタイトル
           </div>
           <div class="book-form">
-            <%= f.text_field :title, placeholder: "本のタイトル" %>
+            <%= f.text_field :title, class: "new-book-form" %>
           </div>
         </div>
       
@@ -21,16 +22,16 @@
             著者
           </div>
           <div class="book-form">
-            <%= f.text_field :writer, placeholder: "著者" %>
+            <%= f.text_field :writer, class: "new-book-form" %>
           </div>
         </div>
      
         <div class="book-form-box">
           <div class="book-form-guide">
-            発行所
+            出版社
           </div>
           <div class="book-form">
-            <%= f.text_field :company, placeholder: "発行所" %>
+            <%= f.text_field :company, class: "new-book-form" %>
           </div>
         </div>  
      
@@ -49,12 +50,31 @@
             %>
           </div>
         </div>  
+
+        <div class="book-form-box">
+          <div class="book-form-guide">
+            カテゴリー
+          </div>
+          <div class="book-form">
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: '---'} )%>
+          </div>
+        </div>
+
+        <div class="book-form-box">
+          <div class="book-form-guide">
+            画像
+          </div>
+          <div class="book-form">
+            <%= f.file_field :image, id:"item-image", class:"item-image" %>
+          </div>
+        </div>  
+
         <%= f.submit "作成" %>
       </div>
     <% end %>
   </div>
 
   <div class="footer">
-    <%= render "shared/header" %>
+    <%= render "shared/footer" %>
   </div>
 </div>

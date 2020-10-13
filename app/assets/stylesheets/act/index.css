@@ -1,0 +1,51 @@
+.act-index{
+  width: 100%;
+  margin-top: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.act-none{
+  margin-top: 100px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/* テーブル */
+.act-index table{
+  border-collapse: separate;
+  border-spacing: 100px 10px;
+  width: 1000px;
+}
+
+.title-side{
+  width: 300px;
+  word-wrap: break-word;
+}
+
+.sentence-side{
+  position: relative;
+  width: 500px;
+  word-wrap: break-word;
+}
+
+th span{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.act-table-th, .act-table-td{
+  border-bottom: 1px solid lightgray;
+}
+
+.act-table-th a, .act-table-td a{
+  display: block;
+  
+}
+/* /テーブル */
+
+.act-table-th:hover, .act-table-td:hover {
+  color: blue;
+  border-bottom: 1px solid navy;
+}

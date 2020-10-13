@@ -2,6 +2,7 @@
   <div class="header">
     <%= render "shared/header" %>
   </div>
+  <%= render partial: "shared/category_list", locals: {categories: @categories} %>
 
   <div class="main book-form-main">
     <%= form_with model:@book, url: books_path, method: :post, local: true do |f| %>
@@ -48,6 +49,19 @@
               ) 
             %>
           </div>
+        </div>
+
+        <div class="book-form-box">
+          <div class="book-form-guide">
+            カテゴリー
+          </div>
+          <div class="book-form">
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: '---'} )%>
+          </div>
+        </div>  
+
+        <%= f.submit "作成" %>
+      </div>
         </div>  
         <%= f.submit "作成" %>
       </div>
@@ -55,6 +69,6 @@
   </div>
 
   <div class="footer">
-    <%= render "shared/header" %>
+    <%= render "shared/footer" %>
   </div>
 </div>

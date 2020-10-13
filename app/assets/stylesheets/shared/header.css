@@ -1,0 +1,82 @@
+/* 全体 */
+.header{
+  position: absolute;
+  top:0;
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* /全体 */
+
+/* タイトル */
+.app-title{
+  font-weight: 600;
+  font-size: 32px;
+}
+/* /タイトル */
+
+/* リスト */
+.header ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 30%;
+  height: 30px;
+  position: relative;
+  right: 30px;
+}
+
+/* カテゴリーリスト */
+.category-range{
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+/* 隠しリスト */
+.category-lists{
+  position: relative;
+  top: 100px;
+  z-index: 10;
+  margin-top: 0;
+  padding: 30px 0;
+  background-color: rgba(0,255,255,0.2);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.hidden-category-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+  
+.category-list{
+  padding: 10px 30px;
+  width: 250px;
+}
+
+.category-list a{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-list a:hover{
+  color: navy;
+  font-size: 20px;
+  font-weight: 600;
+}
+/* /隠しリスト */
+
+/* /カテゴリーリスト */
+
+/* /リスト */

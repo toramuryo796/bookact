@@ -2,39 +2,11 @@
   <div class="header">
     <%= render "shared/header" %>
   </div>
+  <%= render partial: "shared/category_list", locals: {categories: @categories} %>
 
-  <div class="book-show">
+  <div class="book-show main">
     <%# 基本情報 %>
-    <div class="book-show-upper">
-      <div class="show-book-img">
-        <span><%#= book.image %></span>
-        サムネイル
-      </div>
-      <div class="show-book-title">
-        <div class="show-book-guide">
-          タイトル
-        </div>
-        <span><%= @book.title %></span>
-      </div>
-      <div clas="show-book-writer">
-        <div class="show-book-guide">
-          著者
-        </div>      
-        <span><%= @book.writer %></span>
-      </div>
-      <div class="publish">
-        <div class="show-book-guide">
-          発行会社
-        </div>      
-        <span><%= @book.publish.strftime('%Y/%m/%d') %></span>
-      </div>
-      <div class="show-book-company">
-        <span><%= @book.company %></span>
-      </div>
-      <div class="new-introduce-link">
-        <%= link_to "紹介文を作成する", new_book_introduce_path(@book) %>
-      </div>
-    <div>
+    <%= render partial: "shared/book_info", locals: {book: @book} %>
     <%# /基本情報 %>
 
     <%# 紹介文 %>
@@ -42,15 +14,17 @@
       <div class="book-introduce">  
         <% @introduces.each do |introduce| %>
           <div class="introduce-body">
-            <div calss="introduce-title">
-              <%= introduce.title %>
+            <div class="introduce-top">
+              <div class="introduce-title">
+                <%= introduce.title %>
+              </div>
+              <div class="introduce-recommend">
+                おすすめ度★★★
+              </div>
             </div>
             <div class="introduce-content">
-              <%= introduce.content %>
+              <%= simple_format(introduce.content) %>
             </div>
-          </div>
-          <div class="introduce-recomend">
-            おすすめ度★★★
           </div>
 
           <div class="introduce-options">
@@ -66,11 +40,13 @@
         <% end %>
       </div>
     <% else %>
-      <span>登録されている紹介がありません</span>
+      <div class="book-introduce">  
+        <span>登録されている紹介がありません</span>
+      </div>
     <% end %>
   </div>
 
   <div class="footer">
-    <%= render "shared/header" %>
+    <%= render "shared/footer" %>
   </div>
 </div>

@@ -1,0 +1,13 @@
+.l-body{
+  position: relative;
+}
+
+.main{
+  padding-top: 100px;
+  min-height: 80vh;
+}
+
+a{
+  text-decoration: none;
+  color: #333;
+}

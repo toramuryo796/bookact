@@ -1,0 +1,62 @@
+<div class="book-show-upper">
+      <div class="upper-left">
+        <div class="show-book-img">
+          <% if book.image.attached? %>
+            <%= image_tag book.image.variant(resize: '300x300') %>
+          <% else %>
+            <div class="no-image">
+              No Image
+            </div>
+          <% end %>
+          <span class="category-name"><%= book.category.name %></span>
+        </div>
+      </div>
+      <div class="upper-right">
+        <div class="show-book-title">
+          <dl>
+            <dt>
+              タイトル
+            </dt>
+            <dd>
+              <span><%= book.title %></span>
+            </dd>
+          </dl>
+        </div>
+        <div clas="show-book-writer">
+          <dl>
+            <dt>
+              著者
+            </dt>
+            <dd>
+              <span><%= book.writer %></span>
+            </dd>
+          </dl>
+        </div>
+        <div class="publish">
+          <dl>
+            <dt>
+              発行会社
+            </dt>
+            <dd>
+              <span><%= book.publish.strftime('%Y/%m/%d') %></span>
+            </dd>
+          </dl>
+        </div>
+
+        <% if book.acts.present? %>
+          <div class="link-to-act-index">
+            <%= link_to "この本のAct一覧", acts_path %>
+          </div>
+        <% end %>
+
+        <div class="new-act-link">
+          <%= link_to "Actを作成する", new_act_path(book_id: @book.id) %>
+        </div>
+
+        <% if @exist != true %>
+          <div class="link-to-new-introduce">
+            <%= link_to "紹介文を作成する", new_book_introduce_path(book) %>
+          </div>
+        <% end %>
+      </div>
+    </div>

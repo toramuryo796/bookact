@@ -1,0 +1,85 @@
+/* 本紹介 上部 */
+.book-show-upper{
+  margin: 0 auto;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+}
+
+  /* 左側 */
+  .show-book-img{
+    width: 300px;
+    height: 300px;
+    background-color: gray;
+    margin-right: 100px;
+    position: relative;
+  }
+  /* 左側 */
+
+  /* 右側 */
+  .upper-right{
+    position: relative;
+  }
+  
+  .upper-right dt{
+    margin-top: 20px;
+  }
+  
+  .upper-right dd{
+    font-weight: 600;
+    margin-top: 5px;
+    margin-left: 16px;
+    border-bottom: dotted 1px gray;
+  }
+  
+  .new-introduce-link{
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+  }
+  /* /右側 */
+/* /本紹介 上部 */
+
+/* 本紹介 紹介部分 */
+.book-introduce{
+  width: 60%;
+  margin: 0 auto;
+  margin-top:100px;
+  background-color: whitesmoke;
+}
+
+.introduce-top{
+  display: flex;
+  justify-content: space-between;
+}
+
+.introduce-title{
+  font: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.introduce-content{
+  margin-bottom: 5px;
+}
+
+.introduce-recommend{
+  text-align: end;
+  padding-right: 20px;
+}
+
+.introduce-options{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.introduce-edit{
+  margin-right: 20px;
+}
+
+
+/* /本紹介 紹介部分 */
+
+    
+    

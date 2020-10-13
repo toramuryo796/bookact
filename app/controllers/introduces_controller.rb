@@ -1,6 +1,8 @@
 class IntroducesController < ApplicationController
   before_action :find_book
   before_action :find_introduce,  only: [:edit, :update, :destroy]
+  before_action :categories, only: [:new, :edit]
+  before_action :confirm_introduce, only: [:new, :edit]
   def new
     @introduce = Introduce.new()
   end
@@ -42,4 +44,13 @@ class IntroducesController < ApplicationController
   def find_introduce
     @introduce = Introduce.find(params[:id])
   end
+
+  def categories
+    @categories = Category.all
+  end
+
+    # すでに紹介文があるか確認
+    def confirm_introduce
+      @exist = IntroduceConfirm.introduce(@book, current_user)
+    end
 end

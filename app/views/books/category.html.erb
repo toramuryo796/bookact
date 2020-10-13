@@ -1,0 +1,18 @@
+<div class="l-body">  
+  <div class="header">
+    <%= render "shared/header" %>
+  </div>
+  <%= render partial: "shared/category_list", locals: {categories: @categories} %>
+
+  <div class="main category-main">
+    <%= render "shared/search" %>
+    <div class="category-indiv-name">
+      <%= @category.name%>
+    </div>
+      <%= render partial: "shared/books", locals: {books: @books} %>    
+  </div>
+
+  <div class="footer">
+    <%= render "shared/footer" %>
+  </div>
+</div>

@@ -1,11 +1,15 @@
+<div class="app-title">
+  <%= link_to "BookAct", root_path %>
+</div>
 <ul>
   <li>
     <%= link_to "本一覧", books_path %>
   </li>
-  <li>
-    <%#= link_to "カテゴリー", %>
-    カテゴリー
+  <li class="header-category category-range">
+    <a href="#">カテゴリー</a>
   </li>
+  <li class="to-act-index">
+    <%= link_to "Act一覧", acts_path%>
   <li>
     <%#= link_to "my　page", %>
     my　page

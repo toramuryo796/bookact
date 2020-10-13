@@ -1,0 +1,29 @@
+
+.introduce-main-form{
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.introduce-form-box{
+  width: 90%;
+  margin-top: 30px;
+}
+
+.introduce-form{
+  width: 100%;
+}
+
+.introduce-text-field{
+  width: 500px;
+}
+
+.introduce-text-area{
+  width: 500px;
+  height: 400px;
+  resize: none;  
+  overflow: scroll;
+}

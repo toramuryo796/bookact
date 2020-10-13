@@ -1,0 +1,10 @@
+    <%= form_with url: search_books_path, local: true, method: :get do |f| %>
+      <div class="search-books-form">
+        <div class="search-books-form-box">
+          <%= f.text_field :keyword, placeholder: "タイトルから本を検索する", class: "search-books" %>
+        </div>
+        <div class="search-submit">
+          <%= f.submit "検索", class: "submit" %>
+        </div>
+      </div>
+    <% end %>

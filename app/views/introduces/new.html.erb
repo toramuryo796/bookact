@@ -2,70 +2,42 @@
   <div class="header">
     <%= render "shared/header" %>
   </div>
+  <%= render partial: "shared/category_list", locals: {categories: @categories} %>
 
-    <div class="book-show">
+  <div class="book-show main">
     <%# 基本情報 %>
-    <div class="book-show-upper">
-      <div class="show-book-img">
-        <span><%#= book.image %></span>
-        サムネイル
-      </div>
-      <div class="show-book-title">
-        <div class="show-book-guide">
-          タイトル
-        </div>
-        <span><%= @book.title %></span>
-      </div>
-      <div clas="show-book-writer">
-        <div class="show-book-guide">
-          著者
-        </div>      
-        <span><%= @book.writer %></span>
-      </div>
-      <div class="publish">
-        <div class="show-book-guide">
-          発行会社
-        </div>      
-        <span><%= @book.publish.strftime('%Y/%m/%d') %></span>
-      </div>
-      <div class="show-book-company">
-        <span><%= @book.company %></span>
-      </div>
-
-      <div class="book-info-option">
-        <%= link_to "編集", edit_book_path(@book) %>
-      </div>
-    <div>
+    <%= render partial: "shared/book_info", locals: {book: @book} %>    
     <%# /基本情報 %>
 
-  <div class="introduce-main-form">
-    <%= form_with model: @introduce, url: book_introduces_path, local: true do |f|%>
-      <div class="introduce-form-box">
-        <div class="introduce-guide">
-          タイトル
+    <div class="introduce-main-form">
+      <%= form_with model: @introduce, url: book_introduces_path, local: true do |f|%>
+        <div class="introduce-form-box">
+          <div class="introduce-guide">
+            タイトル
+          </div>
+          <div class="introduce-form">
+            <%= f.text_field :title, class: "introduce-text-field" %>
+          </div>
         </div>
-        <div class="introduce-form">
-          <%= f.text_field :title %>
+        
+        <div class="introduce-form-box">
+          <div class="introduce-guide">
+            紹介文
+          </div>
+          <div class="introduce-form">
+            <%= f.text_area :content, class: "introduce-text-area" %>
+          </div>
         </div>
-      </div>
-      
-      <div class="introduce-form-box">
-        <div class="introduce-guide">
-          紹介文
-        </div>
-        <div class="introduce-form">
-          <%= f.text_area :content %>
-        </div>
-      </div>
 
-      <%= f.submit "登録" %>
-    <% end %>
-    <div class="back-to-show">
-      <%= link_to "戻る", book_path(@book) %>
+        <%= f.submit "登録" %>
+      <% end %>
+      <div class="back-to-show">
+        <%= link_to "戻る", book_path(@book) %>
+      </div>
     </div>
   </div>
 
   <div class="footer">
-    <%= render "shared/header" %>
+    <%= render "shared/footer" %>
   </div>
 </div>

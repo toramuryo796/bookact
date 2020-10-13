@@ -1,0 +1,60 @@
+<div class="l-body">  
+  <div class="header">
+    <%= render "shared/header" %>
+  </div>
+  <%= render partial: "shared/category_list", locals: {categories: @categories} %>
+
+  <div class="book-show main">
+    <%# 基本情報 %>
+    <%= render partial: "shared/book_info", locals: {book: @book} %>    
+    <%# /基本情報 %>
+
+    <div class="act-main-form">
+      <%= form_with model: @act, url: acts_path(book_id: @book.id), local: true do |f|%>
+        <div class="act-form-box">
+          <div class="act-guide">
+            Sentence
+          </div>
+          <div class="act-form">
+            <%= f.text_area :content, class: "act-text-field" %>
+          </div>
+        </div>
+
+        <div class="act-form-box">
+          <div class="act-guide">
+            Page
+          </div>
+          <div class="act-form">
+            <%= f.text_field :page, class: "act-page" %>
+          </div>
+        </div>
+        
+        <div class="act-form-box">
+          <div class="act-guide">
+            Point
+          </div>
+          <div class="act-form">
+            <%= f.text_area :point, class: "act-text-field" %>
+          </div>
+        </div>
+        
+        <div class="act-form-box">
+          <div class="act-guide">
+            Action
+          </div>
+          <div class="act-form">
+            <%= f.text_area :act, class: "act-text-field" %>
+          </div>
+        </div>
+
+        <div class="act-form-submit">
+          <%= f.submit "登録" ,class: "act-submit" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="footer">
+    <%= render "shared/footer" %>
+  </div>
+</div>

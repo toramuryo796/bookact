@@ -5,16 +5,13 @@
   <%= render partial: "shared/category_list", locals: {categories: @categories} %>
 
   <div class="main book-main">
-    <div class="catch-flase">
-      <span>最高の本と出会おう</span>
-    </div>
       <%# 検索機能 %>
     <%= render "shared/search" %>
 
     <div class="book-introduce-list">
       <%# 追加リンク %>
       <div class="new-book-link">
-        <%= link_to "本を追加する", new_book_path, class: "link-to-new-book" %>
+        <%= link_to "本を追加する", new_book_path%>
       </div>
 
       <%# 本の紹介リスト %>

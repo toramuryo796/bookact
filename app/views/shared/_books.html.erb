@@ -1,0 +1,31 @@
+<div class="book-index">
+  <% if books.present? %>
+    <ul>
+      <% books.each do |book| %>
+        <%= link_to book_path(book) do %>
+          <li>
+            <div class="root-book-img">
+              <% if book.image.attached? %>
+                <%= image_tag book.image.variant(resize: '300x300') %>
+              <% else %>
+                <div class="no-image">
+                  No Image
+                </div>
+              <% end %>
+              <span class="category-name"><%= book.category.name %></span>
+            </div>
+            <div class="root-book-title">
+              <span><%= book.title %></span>
+            </div>
+            <div clas="root-book-writer">
+              著者：
+              <span><%= book.writer %></span>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% else %>
+    <span>登録されている本がありません</span>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<div class="category-lists header-category">
+  <ul class="hidden-category-list">
+    <% categories.each do |category| %>
+      <li class="category-list">
+        <%= link_to category.name, category_books_path(category_id: category.id) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
