@@ -11,6 +11,8 @@
 
 /* 紹介リスト */
 .book-index{
+  margin-top: 100px;
+  margin-bottom: 70px;
   display: flex;
   justify-content: center;
 }

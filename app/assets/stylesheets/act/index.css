@@ -1,7 +1,7 @@
 .act-index{
   width: 100%;
-  margin-top: 30px;
   margin: 0 auto;
+  margin-top: 50px;
 }
 
 .act-none{
@@ -24,6 +24,8 @@
 
 .sentence-side{
   margin-left: 240px;
+  display: flex;
+  align-items: flex-end;
 }
 /* タイトル */
 
