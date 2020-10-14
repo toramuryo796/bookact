@@ -4,29 +4,29 @@
   </div>
   <%= render partial: "shared/category_list", locals: {categories: @categories} %>
 
-  <div class="main act-main">
-    <div class="act-index">
-      <% if current_user.acts.present? %>
-        <table>
-          <tbody>
-            <tr>
-              <th class="title-side">
-                <span>本のタイトル<span>
-              </th>
-              <th class="sentence-side">
-                <span>sentence</span>
-              </th>
-            <tr>
+  <div class="main-footer">
+    <div class="main act-main view-right-side split">
+      <div class="act-index">
+        <% if current_user.acts.present? %>
+          <div class="act-big-title">
+            <div class="title-side">
+              <span>Title<span>
+            </div>
+            <div class="sentence-side">
+              <span>Sentence</span>
+            </div>
+          </div>
+          <div class="introduce-down-side">
             <% current_user.acts.each do |act| %>
-              <tr class="act-table-list">
-                <td class="act-index-content title-side">
+              <div class="act-table-list">
+                <div class="act-index-content title-content-side">
                   <%= link_to book_path(act.book) do %>
                     <div class="act-table-th">
                       <span><%= act.book.title %></span>
                     </div>
                   <% end %>
-                </td>
-                <td class="act-index-content sentence-side">
+                </div>
+                <div class="act-index-content sentence-content-side">
                   <div class="act-index-content">
                     <%= link_to act_path(act, book_id: act.book) do %>
                       <div class="act-table-td">
@@ -34,20 +34,20 @@
                       </div>
                     <% end %>
                   </div>
-                </td>
-              </tr>
+                </div>
+              </div>
             <% end %>
-          <tbody>
-        </table>
-      <% else %>
-        <div class="act-none">
-          <span>登録されているActがありません</span>
-        </div>
-      <% end %>
+          </div>
+        <% else %>
+          <div class="act-none">
+            <span>登録されているActがありません</span>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
 
-  <div class="footer">
-    <%= render "shared/footer" %>
+    <div class="footer">
+      <%= render "shared/footer" %>
+    </div>
   </div>
 </div>

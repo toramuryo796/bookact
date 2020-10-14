@@ -4,49 +4,48 @@
   </div>
   <%= render partial: "shared/category_list", locals: {categories: @categories} %>
 
-  <div class="book-show main">
-    <%# 基本情報 %>
-    <%= render partial: "shared/book_info", locals: {book: @book} %>
-    <%# /基本情報 %>
+  <div class="main-footer">
+    <div class="book-show main distinction">
+      <%# 基本情報 %>
+      <%= render partial: "shared/book_info", locals: {book: @book, rate: @rate} %>
+      <%# /基本情報 %>
 
-    <%# 紹介文 %>
-    <% if @introduces.present? %>
-      <div class="book-introduce">  
-        <% @introduces.each do |introduce| %>
-          <div class="introduce-body">
-            <div class="introduce-top">
-              <div class="introduce-title">
-                <%= introduce.title %>
+      <%# 紹介文 %>
+      <% if @introduces.present? %>
+        <div class="book-introduce view-right-side split">  
+          <% @introduces.each do |introduce| %>
+            <div class="introduce-body">
+              <div class="introduce-top">
+                <div class="introduce-title">
+                  <%= introduce.title %>
+                </div>
               </div>
-              <div class="introduce-recommend">
-                おすすめ度★★★
+              <div class="introduce-content">
+                <%= simple_format(introduce.content) %>
+              </div>
+
+              <div class="introduce-options">
+                <div class="introduce-edit">
+                  <%= link_to "編集", edit_book_introduce_path(@book, introduce) %>
+                </div>
+                <% if introduce.user == current_user %>
+                  <div class="introduce-destroy">
+                    <%= link_to "削除", book_introduce_path(@book, introduce), method: :delete %>
+                  </div>
+                <% end %>
               </div>
             </div>
-            <div class="introduce-content">
-              <%= simple_format(introduce.content) %>
-            </div>
-          </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="book-introduce view-right-side none-contents">  
+          <span>登録されている紹介がありません</span>
+        </div>
+      <% end %>
+    </div>
 
-          <div class="introduce-options">
-            <div class="introduce-edit">
-              <%= link_to "編集", edit_book_introduce_path(@book, introduce) %>
-            </div>
-            <% if introduce.user == current_user %>
-              <div class="introduce-destroy">
-                <%= link_to "削除", book_introduce_path(@book, introduce), method: :delete %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% else %>
-      <div class="book-introduce">  
-        <span>登録されている紹介がありません</span>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="footer">
-    <%= render "shared/footer" %>
+    <div class="footer">
+      <%= render "shared/footer" %>
+    </div>
   </div>
 </div>

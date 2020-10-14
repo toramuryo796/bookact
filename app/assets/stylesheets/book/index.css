@@ -1,40 +1,3 @@
-.catch-flase{
-  width: 100vw;
-  height: 100px;
-  background-color: lightgray;
-  position: relative;
-}
-
-/* キャッチフレーズ */
-.catch-flase span{
-  position: absolute;
-  top: 38px;
-  left: 40px;
-  font-size: 24px;
-}
-/* /キャッチフレーズ */
-
-/* 検索欄 */
-.search-books-form{
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 15px;
-}
-
-.search-submit{
-  margin-left: 10px;
-}
-
-.search-books{
-  width: 300px;
-}
-
-.submit{
-  padding: 0 5px;
-}
-/* /検索欄 */
-
 .new-book-link{
   width: 80vw;
   margin: 0 auto;
@@ -42,11 +5,9 @@
   margin-bottom: 70px;
 }
 
-.link-to-new-book:hover{
-  border-bottom: 1px solid black;
-  padding-bottom: 10px;
-  color: red;
-}
+.new-book-link:hover a:after{
+  transform: scale(1, 1);
+}                                /* 前工程はheaderのcssに記入してる */
 
 /* 紹介リスト */
 .book-index{
@@ -96,6 +57,7 @@
   padding: 10px;
   position: absolute;
   right: 0;
+  color: #333;
 }
 
 .no-image{
@@ -109,7 +71,48 @@
 }
 /* /サムネイル */
 .root-book-img img:hover{
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
 }
 /* /紹介リスト */
+
+/* 動画 */
+.catch-flase{
+  position: relative;
+}
+
+video{
+  height: 500px;
+  width: 100%;
+}
+
+.top-video{
+  width: 100vw;
+  height: 500px;
+  background-color: #333;
+}
+
+
+.video-flase{             /* アニメーションの開始から終了までの動き */
+  animation-name: fadeIn;
+  animation-duration: 10s; /* アニメーションの開始から終了までの時間 */
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  font-family: 'Sawarabi Mincho', sans-serif;
+
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+/* /動画 */

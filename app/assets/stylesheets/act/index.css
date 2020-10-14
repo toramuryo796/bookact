@@ -2,8 +2,6 @@
   width: 100%;
   margin-top: 30px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
 }
 
 .act-none{
@@ -12,40 +10,59 @@
   font-size: 24px;
 }
 
-/* テーブル */
-.act-index table{
-  border-collapse: separate;
-  border-spacing: 100px 10px;
-  width: 1000px;
+.act-index a{
+  display: block;
 }
 
-.title-side{
-  width: 300px;
-  word-wrap: break-word;
-}
-
-.sentence-side{
-  position: relative;
-  width: 500px;
-  word-wrap: break-word;
-}
-
-th span{
-  font-size: 20px;
+/* actリスト */
+/* タイトル */
+.act-big-title{
+  display: flex;
+  font-size: 24px;
   font-weight: 600;
 }
 
-.act-table-th, .act-table-td{
-  border-bottom: 1px solid lightgray;
+.sentence-side{
+  margin-left: 240px;
+}
+/* タイトル */
+
+/* 内容側(下部) */
+.act-table-list{
+  display: flex;
+  margin-bottom: 5px;
 }
 
-.act-table-th a, .act-table-td a{
-  display: block;
-  
+.introduce-down-side{
+  margin-top: 20px;
 }
-/* /テーブル */
+
+.title-content-side{
+  border-bottom: dashed 1px #dcdcdc;
+}
+
+.act-table-th{
+  width: 250px;
+}
+
+.sentence-content-side{
+  margin-left: 42px;
+  width: 450px;
+  border-bottom: dashed 1px #dcdcdc;
+}
+
+.act-index-content{
+  display: flex;
+  align-items: flex-end;
+}
+
+.act-table-td{
+  width: 450px;
+}
+/* /内容側(下部) */
+
+/* actリスト */
 
 .act-table-th:hover, .act-table-td:hover {
-  color: blue;
-  border-bottom: 1px solid navy;
+  font-weight: 600;
 }

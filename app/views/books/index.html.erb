@@ -4,26 +4,33 @@
   </div>
   <%= render partial: "shared/category_list", locals: {categories: @categories} %>
 
-  <div class="main book-main">
-    <div class="catch-flase">
-      <span>最高の本と出会おう</span>
-    </div>
-      <%# 検索機能 %>
-    <%= render "shared/search" %>
+  <div class="main-footer">
+    <div class="main book-main">
 
-    <div class="book-introduce-list">
-      <%# 追加リンク %>
-      <div class="new-book-link">
-        <%= link_to "本を追加する", new_book_path, class: "link-to-new-book" %>
+      <div class="catch-flase">
+        <div class="top-video">
+          <video autoplay muted playsinline src="/assets/videos/book.mp4"></video>
+        </div>
+        <div class="video-flase">
+          <span>今日、何を読む？</span>
+        </div>
       </div>
+        <%# 検索機能 %>
 
+      <div class="book-introduce-list">
+        <%# 追加リンク %>
+        <div class="new-book-link">
+          <%= link_to "本を追加する", new_book_path, class: "link-to-new-book" %>
+        </div>
+
+        <%# 本の紹介リスト %>
+        <%= render partial: "shared/books", locals: {books: @books} %>
+      </div>
       <%# 本の紹介リスト %>
-      <%= render partial: "shared/books", locals: {books: @books} %>
     </div>
-    <%# 本の紹介リスト %>
-  </div>
 
-  <div class="footer">
-    <%= render "shared/footer" %>
+    <div class="footer">
+      <%= render "shared/footer" %>
+    </div>
   </div>
 </div>

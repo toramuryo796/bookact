@@ -6,12 +6,16 @@
     <%= link_to "本一覧", books_path %>
   </li>
   <li class="header-category category-range">
-    <a href="#">カテゴリー</a>
+    <a href="#">
+      カテゴリー
+      <div class="arrow"></div>
+    </a>
   </li>
   <li class="to-act-index">
     <%= link_to "Act一覧", acts_path%>
+  </li>
   <li>
-    <%#= link_to "my　page", %>
-    my　page
+    <%= render "shared/search" %>
   </li>
 </ul>
+

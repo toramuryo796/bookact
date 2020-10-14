@@ -4,71 +4,73 @@
   </div>
   <%= render partial: "shared/category_list", locals: {categories: @categories} %>
 
-  <div class="book-show main">
-    <%# 基本情報 %>
-    <%= render partial: "shared/book_info", locals: {book: @book} %>
-    <%# /基本情報 %>
+  <div class="main-footer">
+    <div class="book-show main distinction">
+      <%# 基本情報 %>
+      <%= render partial: "shared/book_info", locals: {book: @book, rate: @rate} %>
+      <%# /基本情報 %>
 
-    <%# 紹介文 %>
-    <% if @acts.present? %>
-      <div class="acts-contents">  
-        <% @acts.each do |act| %>
-          <div class="act-l-box">
-            <%# ワード %>
-            <div class="act-content">
-              <div class="act-guide-box">
-                <div class="act-guide">
-                  <span>Sentence</span>
+      <%# 紹介文 %>
+      <% if @acts.present? %>
+        <div class="acts-contents view-right-side split">  
+          <% @acts.each do |act| %>
+            <div class="act-l-box">
+              <%# ワード %>
+              <div class="act-content">
+                <div class="act-guide-box">
+                  <div class="act-guide">
+                    <span>Sentence</span>
+                  </div>
+                </div>
+                <div class="content-box">
+                  <%= act.content %>
+                </div>
+                <div class="content-page">
+                  <%= act.page %>ページ
                 </div>
               </div>
-              <div class="content-box">
-                <%= act.content %>
-              </div>
-              <div class="content-page">
-                <%= act.page %>ページ
-              </div>
-            </div>
-            <%# /ワード %>
+              <%# /ワード %>
 
-            <%# ポイント %>
-            <div class="act-content">
-              <div class="act-guide">
-                <span>Point</span>
+              <%# ポイント %>
+              <div class="act-content">
+                <div class="act-guide">
+                  <span>Point</span>
+                </div>
+                <div class="content-box">
+                  <%= act.point %>
+                </div>
               </div>
-              <div class="content-box">
-                <%= act.point %>
-              </div>
-            </div>
-            <%# /ポイント %>
+              <%# /ポイント %>
 
-            <%# Act %>
-            <div class="act-content">
-              <div class="act-guide">
-                <span>Act</span>
+              <%# Act %>
+              <div class="act-content">
+                <div class="act-guide">
+                  <span>Act</span>
+                </div>
+                <div class="content-box">
+                  <%= act.act %>
+                </div>
               </div>
-              <div class="content-box">
-                <%= act.act %>
-              </div>
-            </div>
-            <%# /Act %>
+              <%# /Act %>
 
-            <%# act-option %>
-            <div class="act-index-options">
-              <div class="tp-act-edit">
-                <%= link_to "編集", edit_act_path(act, book_id: act.book.id) %>
+              <%# act-option %>
+              <div class="act-index-options">
+                <div class="tp-act-edit">
+                  <%= link_to "編集", edit_act_path(act, book_id: act.book.id) %>
+                </div>
+                <div class="tp-act-destroy">
+                  <%= link_to "削除", act_path(act, book_id: act.book.id), method: :delete %>
+                </div>
               </div>
-              <div class="tp-act-destroy">
-                <%= link_to "削除", act_path(act, book_id: act.book.id), method: :delete %>
-              </div>
+              <%# /act-option %>
             </div>
-            <%# /act-option %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
-  <div class="footer">
-    <%= render "shared/footer" %>
+    <div class="footer">
+      <%= render "shared/footer" %>
+    </div>
   </div>
 </div>

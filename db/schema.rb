@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_093507) do
   create_table "introduces", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
     t.string "title", null: false
+    t.integer "star_id", null: false
     t.bigint "user_id", null: false
     t.bigint "book_id", null: false
     t.datetime "created_at", precision: 6, null: false

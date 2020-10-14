@@ -4,23 +4,25 @@
   </div>
   <%= render partial: "shared/category_list", locals: {categories: @categories} %>
 
-  <div class="main book-main">
-      <%# 検索機能 %>
-    <%= render "shared/search" %>
+  <div class="main-footer">
+    <div class="main book-main">
+        <%# 検索機能 %>
+      <%= render "shared/search" %>
 
-    <div class="book-introduce-list">
-      <%# 追加リンク %>
-      <div class="new-book-link">
-        <%= link_to "本を追加する", new_book_path%>
+      <div class="book-introduce-list">
+        <%# 追加リンク %>
+        <div class="new-book-link">
+          <%= link_to "本を追加する", new_book_path%>
+        </div>
+
+        <%# 本の紹介リスト %>
+        <%= render partial: "shared/books", locals: {books: @books} %>
       </div>
-
       <%# 本の紹介リスト %>
-      <%= render partial: "shared/books", locals: {books: @books} %>
     </div>
-    <%# 本の紹介リスト %>
-  </div>
 
-  <div class="footer">
-    <%= render "shared/footer" %>
+    <div class="footer">
+      <%= render "shared/footer" %>
+    </div>
   </div>
 </div>

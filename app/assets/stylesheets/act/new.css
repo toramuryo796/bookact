@@ -6,10 +6,34 @@
   margin-bottom: 50px;
 }
 
+.form{
+  width: 500px;
+  margin: 0 auto;
+  position: relative;
+  top: 100px;
+}
+
 .act-form-box{
   margin-bottom: 30px;
 }
 /* /全体 */
+
+.act-main-title{
+  width: 500px;
+  margin: 0 auto;
+  font-size: 40px;
+  font-weight: 600;
+  position: relative;
+  top: 30px;
+}
+
+.link-to-back{
+  position: relative;
+  top: 130px;
+  width: 500px;
+  text-align: end;
+  margin: 0 auto;
+}
 
 /* text-area */
 .act-text-field{

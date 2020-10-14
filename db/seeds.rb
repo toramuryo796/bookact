@@ -8,6 +8,7 @@
 
 User.create(
   [
-    {name: "ryo", email: "masuda@gmail.com", password: "asd123"}
+    {name: "ryo", email: "masuda@gmail.com", password: "asd123"},
+    {name: "tanaka", email: "tanaka@gmail.com", password: "asd123"}
   ]
 )

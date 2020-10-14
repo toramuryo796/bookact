@@ -1,16 +1,14 @@
 <div class="footer-app-title">
-  <span>BookAct</span>
+  <%= link_to "BookAct", root_path %>
 </div>
 <ul>
   <li>
     <%= link_to "本一覧", books_path %>
   </li>
   <li>
-    <%#= link_to "カテゴリー", %>
-    カテゴリー
+    <%= link_to "Act一覧", acts_path %>
   </li>
   <li>
-    <%#= link_to "my　page", %>
-    my　page
+    <%= link_to "本を追加", new_book_path %>
   </li>
 </ul>

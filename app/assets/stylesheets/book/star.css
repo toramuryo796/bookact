@@ -1,0 +1,42 @@
+/* 星 */
+.stars{
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+  color: #cccccc;
+  display: inline-block;
+}
+
+.stars:before, .stars:after {
+  content: "★★★★★";
+}
+
+.stars:after{
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: gold;
+}
+
+.stars[data-rate="5.0"]:after{ width: 100%; } /* 星5 */
+.stars[data-rate="4.5"]:after{ width: 90%; } /* 星4.5 */
+.stars[data-rate="4.0"]:after{ width: 80%; } /* 星4 */
+.stars[data-rate="3.5"]:after{ width: 70%; } /* 星3.5 */
+.stars[data-rate="3.0"]:after{ width: 60%; } /* 星3 */
+.stars[data-rate="2.5"]:after{ width: 50%; } /* 星2.5 */
+.stars[data-rate="2.0"]:after{ width: 40%; } /* 星2 */
+.stars[data-rate="1.5"]:after{ width: 30%; } /* 星1.5 */
+.stars[data-rate="1.0"]:after{ width: 20%; } /* 星1 */
+.stars[data-rate="0.5"]:after{ width: 10%; } /* 星0.5 */
+.stars[data-rate="0"]:after{ width: 0%; } /* 星0 */
+
+.star-box{
+  width: 300px;
+  text-align: end;
+  margin:0 auto;
+  margin-top: 20px;
+}
+/* /星 */

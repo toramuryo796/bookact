@@ -1,34 +1,39 @@
-/* 本紹介 上部 */
+/* 本紹介 左部 */
 .book-show-upper{
-  margin: 0 auto;
-  width: 50vw;
-  display: flex;
-  justify-content: center;
+  width: 45vw;
+  position: relative;
 }
 
-  /* 左側 */
+  /* 左側上部 */
+  .upper-left{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+
   .show-book-img{
     width: 300px;
     height: 300px;
     background-color: gray;
-    margin-right: 100px;
-    position: relative;
   }
-  /* 左側 */
+  /* 左側上部 */
 
-  /* 右側 */
-  .upper-right{
-    position: relative;
+  /* 左側下部 */
+  .show-book-title{
+    margin-top: 30px;
   }
-  
-  .upper-right dt{
-    margin-top: 20px;
+
+  .upper-right{
+    width: 40vw;
+    margin: 0 auto;
+    margin-top: 10px;
   }
   
   .upper-right dd{
     font-weight: 600;
     margin-top: 5px;
     margin-left: 16px;
+    margin-bottom: 20px;
     border-bottom: dotted 1px gray;
   }
   
@@ -37,15 +42,32 @@
     bottom: 0;
     width: 200px;
   }
-  /* /右側 */
-/* /本紹介 上部 */
+
+  .show-book-title, .show-book-writer{
+    overflow: scroll;
+  }
+  /* /左側かぶ */
+/* /本紹介 左部 */
 
 /* 本紹介 紹介部分 */
-.book-introduce{
-  width: 60%;
-  margin: 0 auto;
-  margin-top:100px;
-  background-color: whitesmoke;
+.none-contents{
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.none-contents span{
+  position: relative;
+  top: -100px;
+}
+
+.introduce-body{
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-bottom:100px;
 }
 
 .introduce-top{
@@ -64,11 +86,6 @@
   margin-bottom: 5px;
 }
 
-.introduce-recommend{
-  text-align: end;
-  padding-right: 20px;
-}
-
 .introduce-options{
   display: flex;
   justify-content: flex-end;
@@ -77,9 +94,14 @@
 .introduce-edit{
   margin-right: 20px;
 }
-
-
 /* /本紹介 紹介部分 */
 
-    
-    
+/* 戻る */
+.back-to-show{
+  position: relative;
+  top: 50px;
+  width: 500px;
+  margin: 0 auto;
+  text-align: end;
+}
+/* 戻る */

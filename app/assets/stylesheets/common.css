@@ -1,13 +1,74 @@
-.l-body{
+body{
   position: relative;
 }
 
+.header{
+  z-index: 5;
+}
+
 .main{
-  padding-top: 100px;
   min-height: 80vh;
+  width: 100vw;
+}
+
+.main-footer{
+  padding-top: 100px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
 }
 
 a{
   text-decoration: none;
   color: #333;
 }
+
+/* 基本情報とその他の区別 */
+.distinction{
+  display: flex;
+}
+
+  /* 左側 */
+  .book-show-upper{
+    background: #333;
+    color: white;
+  }
+  
+  .book-show-upper a{
+    color: white;
+  }
+
+  .info-category-name{
+    background-color: white;
+    padding: 10px;
+    position: absolute;
+    color: #333;
+    z-index: 5;
+  }
+  /* 左側 */
+  
+  /* 右側 */
+  .view-right-side{
+    margin:0 auto;
+    width: 50vw;
+    height: 80vh;
+    overflow: scroll;
+  }
+  
+  .info-link-to{
+    display: flex;
+    margin-top: 20px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .info-link{
+    margin-right: 15px;
+    height: 35px;
+  }
+  
+  .info-link:hover{
+    border-bottom: white 2px solid; 
+  }
+  /* 右側 */
+/* /基本情報とその他の区別 */
