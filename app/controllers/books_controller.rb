@@ -53,7 +53,7 @@ class BooksController < ApplicationController
   end
   private
   def book_params
-    params.require(:book).permit(:title, :writer, :company, :content, :publish, :category_id, :image).merge(user_id: current_user.id)
+    params.permit(:title, :writer, :company, :content, :publish, :category_id, :image).merge(user_id: current_user.id)
   end
   
   def move_to_devise

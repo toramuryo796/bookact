@@ -6,41 +6,45 @@
 
   <div class="main-footer">
     <div class="main book-form-main">
-      <%= form_with model:@book, url: books_path, method: :post, local: true do |f| %>
+      <div class="new-book-title">
+        <span>本の登録</span>
+      </div>
+      <%= form_with url: books_path, method: :post, local: true, class: " book-new-form-main" do |f| %>
         <div class="book-form-contens">
+
         
-          <div class="book-form-box">
-            <div class="book-form-guide">
+          <div class="book-form-box book-new-form-box">
+            <div class="book-form-guide book-new-guide">
               本のタイトル
             </div>
-            <div class="book-form">
+            <div class="book-form book-new-form">
               <%= f.text_field :title, class: "new-book-form" %>
             </div>
           </div>
         
-          <div class="book-form-box">
-            <div class="book-form-guide">
+          <div class="book-form-box book-new-form-box">
+            <div class="book-form-guidee book-new-guide">
               著者
             </div>
-            <div class="book-form">
+            <div class="book-form book-new-form">
               <%= f.text_field :writer, class: "new-book-form" %>
             </div>
           </div>
       
-          <div class="book-form-box">
-            <div class="book-form-guide">
+          <div class="book-form-box book-new-form-box">
+            <div class="book-form-guidee book-new-guide">
               出版社
             </div>
-            <div class="book-form">
+            <div class="book-form book-new-form">
               <%= f.text_field :company, class: "new-book-form" %>
             </div>
           </div>  
       
-          <div class="book-form-box">
-            <div class="book-form-guide">
+          <div class="book-form-box book-new-form-box">
+            <div class="book-form-guidee book-new-guide">
               発行日
             </div>
-            <div class="book-form">
+            <div class="book-form book-new-form">
               <%= f.date_select(
                 :publish,
                 use_month_numbers: true,
@@ -52,25 +56,27 @@
             </div>
           </div>  
 
-          <div class="book-form-box">
-            <div class="book-form-guide">
+          <div class="book-form-box book-new-form-box">
+            <div class="book-form-guidee book-new-guide">
               カテゴリー
             </div>
-            <div class="book-form">
+            <div class="book-form book-new-form">
               <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: '---'} )%>
             </div>
           </div>
 
-          <div class="book-form-box">
-            <div class="book-form-guide">
+          <div class="book-form-box book-new-form-box">
+            <div class="book-form-guidee book-new-guide">
               画像
             </div>
-            <div class="book-form">
+            <div class="book-form book-new-form">
               <%= f.file_field :image, id:"item-image", class:"item-image" %>
             </div>
           </div>  
-
-          <%= f.submit "作成" %>
+          
+          <div class="book-new-submit">
+            <%= f.submit "登録", class: "make-book-submit" %>
+          </div>
         </div>
       <% end %>
     </div>

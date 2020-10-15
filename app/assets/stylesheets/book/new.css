@@ -8,9 +8,36 @@
 }
 
 .new-book-form{
-  width: 300px;
+  width: 400px;
 }
 
 .book-form-box{
   margin-top: 10px;
+}
+
+.book-new-form-main{
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 80px;
+  padding-bottom: 30px;
+}
+
+.book-new-submit{
+  width: 50px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.make-book-submit{
+  width: 50px;
+}
+
+.new-book-title{
+  width: 500px;
+  font-size: 40px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 auto;
+  padding-top: 30px;
+  
 }

@@ -2,21 +2,33 @@
   <%= link_to "BookAct", root_path %>
 </div>
 <ul>
-  <li>
-    <%= link_to "本一覧", books_path %>
-  </li>
-  <li>
-    <%= link_to "本の登録", new_book_path, class: "link-to-new-book" %>
-  </li>
-  <li class="header-category category-range">
-    <a href="#">
-      カテゴリー
-      <div class="arrow"></div>
-    </a>
-  </li>
-  <li class="to-act-index">
-    <%= link_to "Act一覧", acts_path%>
-  </li>
+  <% if @user.present? %>
+    <li>
+      <%= link_to "本の登録", new_book_path, class: "link-to-new-book" %>
+    </li>
+    <li class="header-category category-range">
+      <a href="#">
+        カテゴリー
+        <div class="arrow"></div>
+      </a>
+    </li>
+    <li class="to-act-index">
+      <%= link_to "Act一覧", acts_path%>
+    </li>
+    <li class="mypage">
+      <%= link_to "User", user_path(@user) %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to "本一覧", books_path %>
+    </li>
+    <li>
+      <%= link_to "ログイン", new_user_session_path %>
+    </li>
+    <li>
+      <%= link_to "サインアップ", new_user_registration_path %>
+    </li>
+  <% end %>
   <li>
     <%= render "shared/search" %>
   </li>

@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   end
   
   resources :acts
+  resources :users, only: :show
 
 end

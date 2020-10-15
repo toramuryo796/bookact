@@ -2,13 +2,31 @@
   <%= link_to "BookAct", root_path %>
 </div>
 <ul>
-  <li>
-    <%= link_to "本一覧", books_path %>
-  </li>
-  <li>
-    <%= link_to "Act一覧", acts_path %>
-  </li>
-  <li>
-    <%= link_to "本の登録", new_book_path %>
-  </li>
+  <% if @user.present? %>
+    <li>
+      <%= link_to "本一覧", books_path %>
+    </li>
+    <li>
+      <%= link_to "Act一覧", acts_path %>
+    </li>
+    <li>
+      <%= link_to "本の登録", new_book_path %>
+    </li>
+    <li>
+      <%= link_to "User", user_path(@user) %>
+    </li>
+    <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to "本一覧", books_path %>
+    </li>
+    <li>
+      <%= link_to "ログイン", new_user_session_path %>
+    </li>
+    <li>
+      <%= link_to "サインアップ", new_user_registration_path %>
+    </li>
+  <% end %>
 </ul>

@@ -25,9 +25,8 @@
 /* リスト */
 .header ul{
   display: flex;
-  width: 800px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-end;
   height: 30px;
   position: relative;
   right: 30px;
@@ -39,6 +38,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin-right: 50px;
 }
 
 .arrow{
@@ -73,7 +73,7 @@
 
 /* 隠しリスト */
 .category-lists{
-  position: relative;
+  position: fixed;
   top: 100px;
   z-index: 10;
   margin-top: 0;
