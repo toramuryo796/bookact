@@ -13,7 +13,7 @@
       <%= link_to "本の登録", new_book_path %>
     </li>
     <li>
-      <%= link_to "User", user_path(@user) %>
+      <%= link_to "#{@user.name}", user_path(@user) %>
     </li>
     <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

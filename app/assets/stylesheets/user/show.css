@@ -1,0 +1,47 @@
+.user-show-index{
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+.book-introduce-title{
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 50px;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.user-none-introduce{
+  width:200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.introduce-more{
+  width: 80vw;
+  margin: 0 auto;
+  text-align: end;
+  padding-bottom: 80px;
+}
+
+.book-more{
+  border-bottom: solid 2px gray;
+}
+
+.user-show-index li{
+  margin-bottom: 5px;
+}
+
+.user-show-act-title{
+  justify-content: center;
+  position: relative;
+  left: -50px;
+}
+
+.user-show-act-list{
+  justify-content: center;
+}
+
+.show-user-act-index{
+  margin-bottom: 20px;
+}

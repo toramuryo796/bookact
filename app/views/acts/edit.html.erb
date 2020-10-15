@@ -2,7 +2,10 @@
   <div class="header">
     <%= render "shared/header" %>
   </div>
+
+  <%# 開閉メニュー %>
   <%= render partial: "shared/category_list", locals: {categories: @categories} %>
+  <%# /開閉メニュー %>
 
   <div class="main-footer">
     <div class="book-show main distinction">

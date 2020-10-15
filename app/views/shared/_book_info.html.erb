@@ -1,4 +1,9 @@
 <div class="book-show-upper split">
+  <div class="notifications">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: key) %>
+    <% end %>
+  </div>
   <div class="upper-left">
     <div class="show-book-img">
       <%= link_to book_path(book) do %>

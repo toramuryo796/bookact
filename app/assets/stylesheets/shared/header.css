@@ -20,6 +20,11 @@
 .app-title a:hover {
   color: dimgray;
 }
+
+.notice{
+  text-align: center;
+  margin-top: 20px;
+}
 /* /タイトル */
 
 /* リスト */
@@ -173,3 +178,14 @@
   padding: 0 5px;
 }
 /* /検索欄 */
+
+.header-border{
+  width: 80vw;
+  height: 2px;
+  background-color: gray;
+  padding-top: 100px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}

@@ -17,6 +17,12 @@ class BooksController < ApplicationController
   
   def create
     book = Book.new(book_params)
+    Book.all.each do |b|
+      if (b.title == book.title) && (b.writer == book.writer) 
+        flash[:notice] = 'すでに登録されています'
+        return redirect_to new_book_introduce_path(book, book_id: b.id)
+      end
+    end
     if book.save
       redirect_to new_book_introduce_path(book)
     else

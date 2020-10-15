@@ -1,0 +1,133 @@
+<div class="l-body">  
+  <div class="header">
+    <%= render "shared/header" %>
+  </div>
+  
+  <%# header下線 %>
+  <div class="header-border">
+  </div>
+  <%# /header下線 %>
+
+  <%# 開閉メニュー %>
+  <%= render partial: "shared/category_list", locals: {categories: @categories} %>
+  <%# /開閉メニュー %>
+
+  <div class="main-footer user-show-main">
+    <div class="main book-main">
+
+      <div class="book-introduce-list">
+        <%# 本の紹介リスト %>
+        <div class="book-introduce-title">
+          <span>紹介文記入済み本</span>
+        </div>
+        <div class="book-index user-show-index">
+          <% if @books.present? %>
+            <ul>
+              <%# 本の紹介文を一つずつ出していき、ログインユーザーが紹介文を書いてれば@numに1を加算。@numが３以上になったところで繰り返し終了 %>
+              <% @books.each do |book| %>
+                <% book.introduces.each do |introduce| %>
+                  <% if introduce.user == @user %>
+                    <%= link_to book_path(book) do %>
+                      <li>
+                        <div class="root-book-img">
+                          <% if book.image.attached? %>
+                            <%= image_tag book.image.variant(resize: '300x300') %>
+                          <% else %>
+                            <div class="no-image">
+                              No Image
+                            </div>
+                          <% end %>
+                          <span class="category-name"><%= book.category.name %></span>
+                        </div>
+                        <div class="root-book-title">
+                          <span><%= book.title %></span>
+                        </div>
+                        <div clas="root-book-writer">
+                          著者：
+                          <span><%= book.writer %></span>
+                        </div>
+                      </li>
+                      <%# @numが3以上で抜ける %>
+                      <% break if @num == 3 %>
+                    <% end %>
+                    <% @num += 1 %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </ul>
+          <% else %>
+            <span>登録されている本がありません</span>
+          <% end %>
+        </div>
+        <%# 紹介文の数により表示変化 %>
+        <% if @num == 0 %>
+          <div class="user-none-introduce">
+            <span>登録されている本がありません</span>
+          </div>
+        <% elsif @num <= 4 %>
+          <div class="introduce-more book-more">
+            <span>もっと見る</span>
+          </div>
+        <% end %>
+      </div>
+      <%# 本の紹介リスト %>
+    </div>
+
+    <%# 紹介文リスト %>
+    <div class="act-index show-user-act-index">
+      <% if @acts.present? %>
+        <div class="act-big-title user-show-act-title">
+          <div class="title-side">
+            <span>Title<span>
+          </div>
+          <div class="sentence-side">
+            <span>Sentence</span>
+          </div>
+        </div>
+        <div class="introduce-down-side">
+          <% current_user.acts.each do |act| %>
+            <div class="act-table-list user-show-act-list">
+              <div class="act-index-content title-content-side">
+                <%= link_to book_path(act.book) do %>
+                  <div class="act-table-th">
+                    <span><%= act.book.title %></span>
+                  </div>
+                <% end %>
+              </div>
+              <div class="act-index-content sentence-content-side">
+                <div class="act-index-content">
+                  <%= link_to act_path(act, book_id: act.book) do %>
+                    <div class="act-table-td">
+                      <span><%= act.content %></span>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <% @actNum += 1 %>
+            <% break if @actNum == 3 %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="act-none">
+          <span>登録されているActがありません</span>
+        </div>
+      <% end %>
+      <%# 紹介文の数により表示変化 %>
+      <% if @actNum == 0 %>
+        <div class="introduce-more">
+          <span>登録されているActがありません</span>
+        </div>
+      <% elsif @actNum <= 4 %>
+        <div class="introduce-more ">
+          <span>もっと見る</span>
+        </div>
+      <% end %>
+    </div>
+
+
+    <div class="footer">
+      <%= render "shared/footer" %>
+    </div>
+  </div>
+</div>

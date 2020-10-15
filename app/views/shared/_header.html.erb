@@ -4,6 +4,9 @@
 <ul>
   <% if @user.present? %>
     <li>
+      <%= link_to "本一覧", books_path %>
+    </li>
+    <li>
       <%= link_to "本の登録", new_book_path, class: "link-to-new-book" %>
     </li>
     <li class="header-category category-range">
@@ -16,7 +19,7 @@
       <%= link_to "Act一覧", acts_path%>
     </li>
     <li class="mypage">
-      <%= link_to "User", user_path(@user) %>
+      <%= link_to "#{@user.name}", user_path(@user) %>
     </li>
   <% else %>
     <li>

@@ -2,8 +2,16 @@
   <div class="header">
     <%= render "shared/header" %>
   </div>
-  <%= render partial: "shared/category_list", locals: {categories: @categories} %>
+  
+  <%# header下線 %>
+  <div class="header-border">
+  </div>
+  <%# /header下線 %>
 
+  <%# 開閉メニュー %>
+  <%= render partial: "shared/category_list", locals: {categories: @categories} %>
+  <%# /開閉メニュー %>
+  
   <div class="main-footer">
     <div class="book-show main distinction">
       <%# 基本情報 %>
@@ -11,6 +19,7 @@
       <%# /基本情報 %>
 
       <div class="introduce-main-form view-right-side split">
+
         <div class="introduce-main-title">  
           Introduce
         </div>

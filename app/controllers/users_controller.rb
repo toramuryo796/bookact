@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
-    @introduces = user.introduces
+    @introduces = @user.introduces
     @categories = Category.all
-    @acts = user.acts
+    @books = Book.all
+    @acts = @user.acts
+    @num = 0 #紹介のある本の数
+    @actNum = 0 #紹介文の数
   end
 end
