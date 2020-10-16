@@ -9,5 +9,9 @@ class Book < ApplicationRecord
 
   with_options presence: true do
     validates :category_id
+    validates :title
+    validates :writer
+    validates :publish
+    validates :company
   end
 end
