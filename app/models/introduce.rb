@@ -8,6 +8,6 @@ class Introduce < ApplicationRecord
   with_options presence: true do
     validates :title
     validates :content
-    validates :stsr_id
+    validates :star_id
   end
 end

@@ -15,7 +15,7 @@
   <div class="main-footer">
     <div class="book-show main distinction">
       <%# 基本情報 %>
-      <%= render partial: "shared/book_info", locals: {book: @book, rate: @rate} %>    
+      <%= render partial: "shared/book_info", locals: {book: @book, rate: @rate,  existAct: @existAct, exist: @exist} %>    
       <%# /基本情報 %>
 
       <div class="introduce-main-form view-right-side split">

@@ -10,14 +10,15 @@
   <div class="main-footer">
     <div class="book-show main distinction">
       <%# 基本情報 %>
-      <%= render partial: "shared/book_info", locals: {book: @book, rate: @rate} %>    
+      <%= render partial: "shared/book_info", locals: {book: @book, rate: @rate,  existAct: @existAct, exist: @exist} %>    
       <%# /基本情報 %>
 
       <div class="act-main-form view-right-side split">
         <div class="act-main-title">  
           Act
         </div>
-        <%= form_with model: @act, url: act_path(book_id: @book.id), method: :patch, local: true, class:"form" do |f|%>
+        <%= form_with model: @act, url: book_act_path(@book, @act), method: :patch, local: true, class:"form" do |f|%>
+          <%= f.text_field :book_id, value: @book.id, class: "hidden" %>        
           <div class="act-form-box">
             <div class="act-guide">
               Sentence
@@ -60,7 +61,7 @@
         <% end %>
 
         <div class="link-to-back">
-          <%= link_to "戻る", act_path(@act, book_id: @book) %>
+          <%= link_to "戻る", book_act_path(@book, @act)%>
         </div>
       </div>
     </div>

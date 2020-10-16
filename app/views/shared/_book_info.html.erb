@@ -66,19 +66,23 @@
     </div>
 
     <div class="info-link-to">
-      <% if book.acts.present? %>
+      <% if existAct == true %>
         <div class="link-to-act-index info-link">
-          <%= link_to "この本のAct一覧", acts_path %>
+          <%= link_to "この本のAct一覧", book_acts(book) %>
         </div>
       <% end %>
 
       <div class="new-act-link info-link">
-        <%= link_to "Actを作成する", new_act_path(book_id: book.id) %>
+        <%= link_to "Actを作成する", new_book_act_path(@book, @act)%>
       </div>
 
-      <% if @exist != true %>
+      <% if exist != true %>
         <div class="link-to-new-introduce info-link">
           <%= link_to "紹介文を作成する", new_book_introduce_path(book) %>
+        </div>
+      <% else %>
+        <div class="link-to-new-introduce info-link">
+          <%= link_to "紹介文", book_path(book) %>
         </div>
       <% end %>
     </div>

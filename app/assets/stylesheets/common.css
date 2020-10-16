@@ -67,6 +67,10 @@ a{
     height: 35px;
   }
   
+  .info-link a{
+    height: 35px;
+    display: block;
+  }
   .info-link:hover{
     border-bottom: white 2px solid; 
   }

@@ -1,0 +1,75 @@
+<div class="l-body">  
+  <div class="header">
+    <%= render "shared/header" %>
+  </div>
+
+  <%# 開閉メニュー %>
+  <%= render partial: "shared/category_list", locals: {categories: categories} %>
+  <%# /開閉メニュー %>
+
+  <div class="main-footer">
+    <div class="book-show main distinction">
+      <%# 基本情報 %>
+      <%= render partial: "shared/book_info", locals: {book: book, rate: rate,  existAct: existAct, exist: exist} %>
+      <%# /基本情報 %>
+
+      <%# 紹介文 %>
+      <% if @acts.present? %>
+        <div class="acts-contents view-right-side split">  
+          <% @acts.each do |act| %>
+            <div class="act-l-box">
+              <%# ワード %>
+              <div class="act-content">
+                <div class="act-guide">
+                  <span>Sentence</span>
+                </div>
+                <div class="content-box">
+                  <%= act.content %>
+                  (<%= act.page %>ページ)
+                </div>
+              </div>
+              <%# /ワード %>
+
+              <%# ポイント %>
+              <div class="act-content">
+                <div class="act-guide">
+                  <span>Point</span>
+                </div>
+                <div class="content-box">
+                  <%= act.point %>
+                </div>
+              </div>
+              <%# /ポイント %>
+
+              <%# Act %>
+              <div class="act-content">
+                <div class="act-guide">
+                  <span>Act</span>
+                </div>
+                <div class="content-box">
+                  <%= act.act %>
+                </div>
+              </div>
+              <%# /Act %>
+
+              <%# act-option %>
+              <div class="act-index-options">
+                <div class="tp-act-edit">
+                  <%= link_to "編集", edit_book_act_path(act.book, act) %>
+                </div>
+                <div class="tp-act-destroy">
+                  <%= link_to "削除", book_act_path(act.book, act), method: :delete %>
+                </div>
+              </div>
+              <%# /act-option %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="footer">
+      <%= render "shared/footer" %>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   before_action :categories,        only: [:index, :new, :edit, :show, :create, :category, :search]
   before_action :confirm_introduce, only: [:edit, :show]
   before_action :rate,              only: [:show, :edit]
+  before_action :confirm_act,       only: [:edit, :update, :show]
   require 'date'
 
   def index
@@ -16,15 +17,15 @@ class BooksController < ApplicationController
   end
   
   def create
-    book = Book.new(book_params)
+    @book = Book.new(book_params)
     Book.all.each do |b|
-      if (b.title == book.title) && (b.writer == book.writer) 
+      if (b.title == @book.title) && (b.writer == @book.writer) 
         flash[:notice] = 'すでに登録されています'
-        return redirect_to new_book_introduce_path(book, book_id: b.id)
+        return redirect_to new_book_introduce_path(@book, book_id: b.id)
       end
     end
-    if book.save
-      redirect_to new_book_introduce_path(book)
+    if @book.save
+      redirect_to new_book_introduce_path(@book)
     else
       render :new
     end
@@ -57,6 +58,7 @@ class BooksController < ApplicationController
   def search
     @books = SearchBooks.search(params[:keyword])
   end
+  
   private
   def book_params
     params.permit(:title, :writer, :company, :content, :publish, :category_id, :image).merge(user_id: current_user.id)
@@ -80,9 +82,16 @@ class BooksController < ApplicationController
   def confirm_introduce
     @exist = IntroduceConfirm.introduce(@book, current_user)
   end
-
+  
   # 評価
   def rate
     @rate = StarRate.rate(@book)
+  end
+
+  def confirm_act
+    @acts = Act.where(book_id: @book.id, user_id: user.id )
+    if @acts.present?
+      @existAct = true
+    end
   end
 end

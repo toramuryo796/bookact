@@ -10,14 +10,14 @@
   <div class="main-footer">
     <div class="book-show main distinction">
       <%# 基本情報 %>
-      <%= render partial: "shared/book_info", locals: {book: @book, rate: @rate} %>    
+      <%= render partial: "shared/book_info", locals: {book: @book, rate: @rate,  existAct: @existAct, exist: @exist} %>    
       <%# /基本情報 %>
-
       <div class="act-main-form view-right-side split">
         <div class="act-main-title">  
           Act
         </div>
-        <%= form_with model: @act, url: acts_path(book_id: @book.id), local: true, class: "form" do |f|%>
+        <%= form_with model: @act, url: book_acts(@book), local: true, class: "form" do |f|%>
+          <%= f.text_field :book_id, value: @book.id, class: "hidden" %>
           <div class="act-form-box">
             <div class="act-guide">
               Sentence
