@@ -72,9 +72,13 @@
   font-weight: 700;
 }
 /* /サムネイル */
-.root-book-img img:hover{
+.book-index li:hover .root-book-img img{
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
+}
+
+.book-index li:hover .list-text{
+  color: gray;
 }
 /* /紹介リスト */
 

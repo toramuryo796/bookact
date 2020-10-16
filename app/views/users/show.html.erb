@@ -66,7 +66,7 @@
           </div>
         <% elsif @num <= 4 %>
           <div class="introduce-more book-more">
-            <span>もっと見る</span>
+            <%= link_to "もっと見る", book_users_path %>
           </div>
         <% end %>
       </div>
@@ -119,8 +119,8 @@
           <span>登録されているActがありません</span>
         </div>
       <% elsif @actNum <= 4 %>
-        <div class="introduce-more ">
-          <span>もっと見る</span>
+        <div class="introduce-more act-more">
+          <%= link_to "もっと見る", acts_path %>
         </div>
       <% end %>
     </div>

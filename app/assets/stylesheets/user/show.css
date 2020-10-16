@@ -24,6 +24,14 @@
   padding-bottom: 80px;
 }
 
+.introduce-more a:hover{
+  color: red;
+}
+
+.act-more{
+  margin-top: 16px;
+}
+
 .book-more{
   border-bottom: solid 2px gray;
 }
