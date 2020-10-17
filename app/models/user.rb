@@ -8,9 +8,14 @@ class User < ApplicationRecord
   has_many :introduces,  dependent: :destroy
   has_many :acts,        dependent: :destroy
 
+  # validate
+  name_length = { maximum: 40 , message: "は40字以内で入れてください"}
+  name = { with: /\A[a-zA-Z0-9]+\Z/, message: "は全角スペース・記号を入れないでください" }
+  email = { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "には'@'をつけてください" } 
+  pass = { with: /(?=.*\d+.*)(?=.*[a-zA-Z]+.*)+/, message: 'は半角英数字を混合させて入力してください' }
   with_options presence: true do
     validates :name
-    validates :email
-    validates :password
+    validates :email, uniqueness: true, format: email
+    validates :password, format: pass
   end
 end

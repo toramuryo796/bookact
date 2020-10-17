@@ -34,6 +34,7 @@
 
 .field{
   margin-bottom: 20px;
+  height: 60px;
 }
 
 .devise-submit{
@@ -53,4 +54,8 @@
 
 .devise-option a:hover{
   color: navy;
+}
+
+.field_with_errors{
+  
 }
