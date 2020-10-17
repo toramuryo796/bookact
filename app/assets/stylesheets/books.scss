@@ -3,3 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&family=Sawarabi+Mincho&display=swa");
+
+.catch-flase{
+  object-fit: contain;
+  background-image: image-url("books-back.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color:rgba(255,255,255,0.6);
+  background-position: top center;
+  background-blend-mode: lighten; 
+  background-attachment: fixed;
+  margin-bottom: 0;
+}
