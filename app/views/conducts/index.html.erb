@@ -1,0 +1,61 @@
+<div class="l-body">  
+  <div class="header">
+    <%= render "shared/header" %>
+  </div>
+  
+  <%# header下線 %>
+  <div class="header-border">
+  </div>
+  <%# /header下線 %>
+
+  <%# 開閉メニュー %>
+  <%= render partial: "shared/category_list", locals: {categories: @categories} %>
+  <%# /開閉メニュー %>
+
+  <div class="main-footer">
+    <div class="main act-main view-right-side split">
+      <div class="act-index">
+        <% if current_user.acts.present? %>
+          <div class="act-big-title">
+            <div class="title-side">
+              <span>Title<span>
+            </div>
+            <div class="sentence-side">
+              <span>Sentence</span>
+            </div>
+          </div>
+          <div class="introduce-down-side">
+            <% current_user.acts.each do |act| %>
+              <div class="act-table-list">
+                <div class="act-index-content title-content-side">
+                  <%= link_to book_path(act.book) do %>
+                    <div class="act-table-th">
+                      <span><%= act.book.title %></span>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="act-index-content sentence-content-side">
+                  <div class="act-index-content">
+                    <%= link_to book_acts_path(act.book) do %>
+                      <div class="act-table-td">
+                        <span><%= act.content %></span>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="act-none">
+            <span>登録されているActがありません</span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="footer">
+      <%= render "shared/footer" %>
+    </div>
+  </div>
+</div>

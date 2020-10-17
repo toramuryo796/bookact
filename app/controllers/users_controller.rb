@@ -4,8 +4,18 @@ class UsersController < ApplicationController
   def show
     @introduces = @user.introduces
     @acts = @user.acts
-    @num = 0 #紹介のある本の数
-    @actNum = 0 #紹介文の数
+    @num = 0 #viewで3つ目を数えるためのもの(book)
+    @actNum = 0 #同上(act)
+    @booksData = 0
+    @actsData = 0
+
+    @introduces.each do |introduce|
+      @booksData += 1
+    end
+
+    @acts.each do |act|
+      @actsData+= 1
+    end
   end
   
   def book

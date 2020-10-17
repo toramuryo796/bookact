@@ -4,11 +4,7 @@ Rails.application.routes.draw do
   root "books#index"
   resources :books do
     resources :introduces
-    resources :acts do
-      collection do
-        get "acts"
-      end
-    end
+    resources :acts 
     collection do
       get 'category'
     end
@@ -17,11 +13,11 @@ Rails.application.routes.draw do
     end
   end
   
-
   resources :users, only: :show do
     collection do
       get "book"
     end
   end
 
+  resources :conducts, only: :index
 end

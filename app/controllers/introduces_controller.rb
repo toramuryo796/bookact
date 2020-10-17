@@ -3,9 +3,9 @@ class IntroducesController < ApplicationController
   before_action :find_book,         except: :move_to_log_in
   before_action :find_introduce,    only: [:edit, :update, :destroy]
   before_action :categories
-  before_action :confirm_introduce, only: [:new, :edit]
+  before_action :confirm_introduce, only: [:new, :create, :edit, :update]
   before_action :rate,              only: [:new, :show, :edit]
-  before_action :confirm_act,       only: [:new, , :show, :create, :edit, :update]
+  before_action :confirm_act,       only: [:new, :show, :create, :edit, :update]
 
   def new
     @introduce = Introduce.new
@@ -72,7 +72,7 @@ class IntroducesController < ApplicationController
     
   def confirm_act
     @acts = Act.where(book_id: @book.id, user_id: user.id )
-    unless @acts.present?
+    if @acts.present?
       @existAct = true
     end
   end

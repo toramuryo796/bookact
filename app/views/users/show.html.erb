@@ -64,65 +64,63 @@
           <div class="user-none-introduce">
             <span>登録されている本がありません</span>
           </div>
-        <% elsif @num <= 4 %>
+        <% elsif @booksData > 3 %>
           <div class="introduce-more book-more">
             <%= link_to "もっと見る", book_users_path %>
           </div>
         <% end %>
+
+        <div class="book-border-bottom">
       </div>
       <%# 本の紹介リスト %>
-    </div>
 
-    <%# 紹介文リスト %>
-    <div class="act-index show-user-act-index">
-      <% if @acts.present? %>
-        <div class="act-big-title user-show-act-title">
-          <div class="title-side">
-            <span>Title<span>
+      <%# 紹介文リスト %>
+      <div class="act-index show-user-act-index">
+        <% if @acts.present? %>
+          <div class="act-big-title user-show-act-title">
+            <div class="title-side">
+              <span>Title<span>
+            </div>
+            <div class="sentence-side">
+              <span>Sentence</span>
+            </div>
           </div>
-          <div class="sentence-side">
-            <span>Sentence</span>
-          </div>
-        </div>
-        <div class="introduce-down-side">
-          <% current_user.acts.each do |act| %>
-            <div class="act-table-list user-show-act-list">
-              <div class="act-index-content title-content-side">
-                <%= link_to book_path(act.book) do %>
-                  <div class="act-table-th">
-                    <span><%= act.book.title %></span>
-                  </div>
-                <% end %>
-              </div>
-              <div class="act-index-content sentence-content-side">
-                <div class="act-index-content">
-                  <%= link_to book_act_path(act.book, act) do %>
-                    <div class="act-table-td">
-                      <span><%= act.content %></span>
+          <div class="introduce-down-side">
+            <% current_user.acts.each do |act| %>
+              <div class="act-table-list user-show-act-list">
+                <div class="act-index-content title-content-side">
+                  <%= link_to book_path(act.book) do %>
+                    <div class="act-table-th">
+                      <span><%= act.book.title %></span>
                     </div>
                   <% end %>
                 </div>
+                <div class="act-index-content sentence-content-side">
+                  <div class="act-index-content">
+                    <%= link_to book_acts_path(act.book) do %>
+                      <div class="act-table-td">
+                        <span><%= act.content %></span>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
               </div>
-            </div>
-            <% @actNum += 1 %>
-            <% break if @actNum == 3 %>
-          <% end %>
-        </div>
-      <% else %>
-        <div class="act-none">
-          <span>登録されているActがありません</span>
-        </div>
-      <% end %>
-      <%# 紹介文の数により表示変化 %>
-      <% if @actNum == 0 %>
-        <div class="introduce-more">
-          <span>登録されているActがありません</span>
-        </div>
-      <% elsif @actNum <= 4 %>
-        <div class="introduce-more act-more">
-          <%= link_to "もっと見る", acts_path %>
-        </div>
-      <% end %>
+              <% @actNum += 1 %>
+              <% break if @actNum == 3 %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="act-none">
+            <span>登録されているActがありません</span>
+          </div>
+        <% end %>
+        <%# 紹介文の数により表示変化 %>
+        <% if @actsData > 3 %>
+          <div class="introduce-more act-more">
+            <%= link_to "もっと見る", conducts_path %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
 

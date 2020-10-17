@@ -20,8 +20,14 @@
 .introduce-more{
   width: 80vw;
   margin: 0 auto;
-  text-align: end;
   padding-bottom: 80px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.introduce-more a{
+  width: 100px;
+  text-align: center;
 }
 
 .introduce-more a:hover{
@@ -32,8 +38,12 @@
   margin-top: 16px;
 }
 
-.book-more{
-  border-bottom: solid 2px gray;
+.book-border-bottom{
+  width: 80vw;
+  height: 2px;
+  background-color: gray;
+  margin: 0 auto;
+  margin-top: 40px;
 }
 
 .user-show-index li{

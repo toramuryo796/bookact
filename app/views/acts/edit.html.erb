@@ -18,13 +18,12 @@
           Act
         </div>
         <%= form_with model: @act, url: book_act_path(@book, @act), method: :patch, local: true, class:"form" do |f|%>
-          <%= f.text_field :book_id, value: @book.id, class: "hidden" %>        
           <div class="act-form-box">
             <div class="act-guide">
               Sentence
             </div>
             <div class="act-form">
-              <%= f.text_area :content, class: "act-text-field" %>
+              <%= f.text_area :content, class: "act-text-field", value: @act.content %>
             </div>
           </div>
 
@@ -33,7 +32,7 @@
               Page
             </div>
             <div class="act-form">
-              <%= f.text_field :page, class: "act-page" %>
+              <%= f.text_field :page, class: "act-page", value: @act.page %>
             </div>
           </div>
           
@@ -42,7 +41,7 @@
               Point
             </div>
             <div class="act-form">
-              <%= f.text_area :point, class: "act-text-field" %>
+              <%= f.text_area :point, class: "act-text-field", value: @act.point %>
             </div>
           </div>
           
@@ -51,7 +50,7 @@
               Action
             </div>
             <div class="act-form">
-              <%= f.text_area :act, class: "act-text-field" %>
+              <%= f.text_area :act, class: "act-text-field", value: @act.act %>
             </div>
           </div>
 
