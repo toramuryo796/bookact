@@ -12,9 +12,9 @@ class IntroducesController < ApplicationController
   end
 
   def create
-    introduce = Introduce.new(introduce_params)
-    if introduce.save
-      redirect_to book_path(introduce.book_id)
+    @introduce = Introduce.new(introduce_params)
+    if @introduce.save
+      redirect_to book_path(@introduce.book_id)
     else
       render :new
     end

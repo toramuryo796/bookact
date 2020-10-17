@@ -18,6 +18,7 @@
         <span>本の登録</span>
       </div>
       <%= form_with url: books_path, method: :post, local: true, class: " book-new-form-main" do |f| %>
+        <%= render partial: 'shared/error_messages', locals: { model: @book } %>
         <div class="book-form-contens">
 
         

@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :find_book,         except: [:index, :create, :book_params, :rate]
-  before_action :move_to_devise,    except: [:index, :show]
+  before_action :move_to_devise,    except: :index
   before_action :categories,        only: [:index, :new, :edit, :show, :create, :category, :search]
   before_action :confirm_introduce, only: [:edit, :show]
   before_action :rate,              only: [:show, :edit]

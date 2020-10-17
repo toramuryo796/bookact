@@ -19,12 +19,13 @@
           Introduce
         </div>
         <%= form_with model: @introduce, url: book_introduces_path, local: true, class: "form-act" do |f|%>
+          <%= render partial: 'shared/error_messages', locals: { model: f.object } %>
           <div class="introduce-form-box">
             <div class="introduce-guide">
               タイトル
             </div>
             <div class="introduce-form">
-              <%= f.text_field :title, class: "introduce-text-field" %>
+              <%= f.text_field :title, class: "introduce-text-field", value: @introduce.title %>
             </div>
           </div>
           
@@ -33,7 +34,7 @@
               紹介文
             </div>
             <div class="introduce-form">
-              <%= f.text_area :content, class: "introduce-text-area" %>
+              <%= f.text_area :content, class: "introduce-text-area", value: @introduce.content %>
             </div>
           </div>
           

@@ -1,0 +1,21 @@
+ja:
+ activerecord:
+   attributes:
+    user: 
+      name: 名前
+    book:
+      title: タイトル
+      writer: 著者名
+      publish: 発行日
+      company: 出版社
+      category_id: カテゴリー
+    introduce:
+      content: 紹介文
+      title: タイトル
+      star_id: おすすめ度
+    act: 
+      page: ページ
+      content: sentence
+      point: point
+      act: act
+    

@@ -18,6 +18,7 @@
           Act
         </div>
         <%= form_with model: @act, url: book_act_path(@book, @act), method: :patch, local: true, class:"form" do |f|%>
+          <%= render partial: 'shared/error_messages', locals: { model: f.object } %>
           <div class="act-form-box">
             <div class="act-guide">
               Sentence

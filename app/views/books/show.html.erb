@@ -28,10 +28,10 @@
               </div>
 
               <div class="introduce-options">
-                <div class="introduce-edit">
-                  <%= link_to "編集", edit_book_introduce_path(@book, introduce) %>
-                </div>
                 <% if introduce.user == current_user %>
+                  <div class="introduce-edit">
+                    <%= link_to "編集", edit_book_introduce_path(@book, introduce) %>
+                  </div>
                   <div class="introduce-destroy">
                     <%= link_to "削除", book_introduce_path(@book, introduce), method: :delete %>
                   </div>

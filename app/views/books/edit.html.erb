@@ -14,6 +14,7 @@
       <%# /基本情報 %>
       <div class="main book-form-main view-right-side split">
         <%= form_with  url: books_path, method: :patch, local: true do |f| %>
+          <%= render partial: 'shared/error_messages', locals: { model: f.object } %>
           <div class="book-form-contens">
           
             <div class="book-form-box">
