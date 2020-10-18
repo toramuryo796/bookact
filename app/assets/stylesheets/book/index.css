@@ -37,6 +37,7 @@
 .root-book-img{
   width:300px;
   height:300px;
+  background-color: gray;
   position: relative;
   overflow: hidden;
 }
@@ -94,7 +95,7 @@ video{
 .top-video{
   width: 100vw;
   height: 500px;
-  /* background-color: #333; */
+  background-color: #333;
 }
 
 
