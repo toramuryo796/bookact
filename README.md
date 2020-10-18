@@ -6,7 +6,7 @@
 より本を効果的に読み進めることができます。  
 
 ## デプロイ済みURL
-
+https://book-act.herokuapp.com/
 
 ## 利用方法
 - 本の登録
@@ -31,10 +31,7 @@
 userID : masuda    
 email : masuda@gmail.com   
 password : asd123  
-  
-userID : ryo  
-email : ryo@gmail.com
-password : asd123  
+
 
 ## 目指した課題解決
 いい本を見つけたい    
